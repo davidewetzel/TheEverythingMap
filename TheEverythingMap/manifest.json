@@ -1,8 +1,8 @@
 {
   "name": "TheEverythingMap",
-  "version_number": "1.0.6",
+  "version_number": "1.0.7",
   "website_url": "https://github.com/davidewetzel/TheEverythingMap",
-  "description": "Minimap that you can see friendly players, enemies, auto-find all items, auto explore map & change colors of icons ",
+  "description": "Minimap that you can see friendly players, enemies, auto-find all items / cosmetic boxes, auto explore map & change colors of icons ",
   "dependencies": [
     "BepInEx-BepInExPack-5.4.2100",
     "nickklmao-MenuLib-2.3.0"

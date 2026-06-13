@@ -268,12 +268,6 @@ public class TheEverythingMap : BaseUnityPlugin
         if (ConfigValues.ShowItems.Value
             && FindObjectsOfType<ValuableDiscoverCustom>().Any())
         {
-            foreach (ValuableDiscoverCustom item in FindObjectsOfType<ValuableDiscoverCustom>())
-            {
-                item.discovered = true;
-                item.Discover();
-            }
-
             foreach (ValuableObject item in FindObjectsOfType<ValuableObject>())
             {
                 item.discovered = true;
@@ -285,6 +279,11 @@ public class TheEverythingMap : BaseUnityPlugin
             {
                 mapComponent.spriteRenderer.color = ConfigValues.ItemColor.Value.ToColor();
 
+            }
+
+            foreach (ValuableDiscoverCustom item in FindObjectsOfType<ValuableDiscoverCustom>())
+            {
+                item.Discover();
             }
         }
     }

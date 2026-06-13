@@ -1,16 +1,24 @@
 # Introduction 
-TheEverythingMap is still in MVP mode. Thank you to Minimap by Digs for the base functionality - so far I have extended it to include markers on the map for friendly players (currently to a hardcoded color). Eventually that will be customizable / show it based on their head color. 
+I specifically created this mod for my wife and her friend because they say omg there's a monster help, and I ask where are you? And the answer is always 'here' *facepalm*   
+Probably some bugs so feel free to shoot me a message / post an issue and I may look at it if I'm not bombarded at work.  
+I am on the REPO modding discord and I do have the code published here for anyone curious / wants to do something for their own mod / contribute etc. 
+https://github.com/davidewetzel/TheEverythingMap 
 
-Also planning to allow an option for seeing enemies on the minimap, as well as autoexploring all the rooms. 
+# Current Functionality 
+- Show Teammates 
+- Show Dead Teammates 
+- Show Enemies 
+- Show Items 
+- Show Cosmetic boxes 
+- Auto Explore all rooms in map 
+- Change colors for everything 
+- Can Zoom In & out of map ( + / - ) 
+- Can Change position of map  
+- Open settings on map (m)  
 
-# Getting Started
-A couple of things are configurable (I hope, haven't really tested it)
-You should be able to adjust the size of the minimap, as well as zoom in & out with = & - 
-and change the position of where the map is (I eventually want to add an option for bottom left & bottom right)
+Best way to modify settings is through the game Setting Menu ('Nubez Minimap') instead of the mod settings
 
-# About me
-Thank you for reading this far. I'm a full time (7 yoe) C# dev who has never touched Unity / games in general so this has been fun. This mod is dedicated to my wife Bubbles and her friend Grace who frequently say help and I ask where are you? And the reply is here! And in case you're wondering, my cat's name is Nube. 
+If you're already in game while you try change stuff, 70% chance it won't do anything, to confirm all is good I would do it out of game 
+-> if items aren't showing up, you can try disabling and re-enabling, I did have that working dynamically because it was happening on like 25% of my games where it just wouldn't show anything  
 
-
-
-
+if you have an RGB value you want to add let me know... 

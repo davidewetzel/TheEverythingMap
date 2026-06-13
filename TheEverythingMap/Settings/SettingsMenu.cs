@@ -9,7 +9,7 @@ using static MenuLib.MenuAPI;
 using static TheEverythingMap.Settings.ConfigValues;
 
 namespace TheEverythingMap.Settings;
-//??
+
 internal class SettingsMenu
 {
     private static readonly string[] COLOR_DICTIONARY_KEYS = Extensions.VALID_COLORS.Keys.ToArray();

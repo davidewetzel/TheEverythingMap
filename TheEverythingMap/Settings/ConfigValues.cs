@@ -28,6 +28,8 @@ public static class ConfigValues
 
     internal static ConfigEntry<string> TeammateColor = null!;
 
+    internal static ConfigEntry<bool> ShowTeammates = null!;
+
     internal static ConfigEntry<bool> ShowEnemies = null!;
 
     internal static ConfigEntry<bool> ShowItems = null!;
@@ -42,7 +44,8 @@ public static class ConfigValues
 
     internal static void Configure(BaseUnityPlugin plugin)
     {
-        TeammateColor = plugin.Config.Bind("General", "Teammate Color", DEFAULT_TEAMMATE_COLOR, new ConfigDescription("The color of teammates on the minimap. (Recommended value = white)", null, []));
+        ShowTeammates = plugin.Config.Bind("General", "Show Teammates", true, new ConfigDescription("Whether to show teammates on the minimap. (Recommended value = true)", null, []));
+        TeammateColor = plugin.Config.Bind("General", "Teammate Color", DEFAULT_TEAMMATE_COLOR, new ConfigDescription("The color of teammates on the minimap. (Recommended value = white)", null, []));    
         DeadTeammateColor = plugin.Config.Bind("General", "Dead Teammate Color", DEFAULT_DEAD_TEAMMATE_COLOR, new ConfigDescription("The color of dead teammates on the minimap. (Recommended value = black)", null, []));
         EnemyColor = plugin.Config.Bind("General", "Enemy Color", DEFAULT_ENEMY_COLOR, new ConfigDescription("The color of enemies on the minimap. (Recommended value = red)", null, []));
         ItemColor = plugin.Config.Bind("General", "Item Color", DEFAULT_ITEM_COLOR, new ConfigDescription("The color of items on the minimap. (Recommended value = yellow)", null, []));

@@ -38,9 +38,9 @@ public class TheEverythingMap : BaseUnityPlugin
 
     private float targetSetHeight = -1f;
 
-    private static Sprite? spriteCircle = SpriteHelper.CreateCircleSprite();
+    private static Sprite? spriteCircle = SpriteHelper.CreateCircleSprite(DEFAULT_SPRITE_SIZE);
 
-    //private static Sprite? enemySpriteTriangle;
+    private const int DEFAULT_SPRITE_SIZE = 10;
 
     private void Start()
     {
@@ -302,7 +302,8 @@ public class TheEverythingMap : BaseUnityPlugin
 
     public static void ShowActivePlayersOnMap()
     {
-        if (GameDirector.instance != null
+        if (ConfigValues.ShowTeammates.Value
+            && GameDirector.instance != null
             && GameDirector.instance.PlayerList != null && GameDirector.instance.PlayerList.Any(player => player != null && player.gameObject != null))
         {
             foreach (PlayerAvatar playerAvatar in GameDirector.instance.PlayerList.Where(player => player != null && player.gameObject != null))
@@ -314,9 +315,7 @@ public class TheEverythingMap : BaseUnityPlugin
                     Destroy(playerAvatar.GetComponent<MapCustom>());
                 }
 
-                playerAvatar.AddComponent<MapCustom>();
-
-                playerMapCustom = playerAvatar.GetComponent<MapCustom>();
+                playerMapCustom = playerAvatar.AddComponent<MapCustom>();
                 playerMapCustom.sprite = spriteCircle;
 
                 // TODO: if i want to get color of player heads, it should be something like this, but not working, maybe pass in true to method
@@ -329,6 +328,7 @@ public class TheEverythingMap : BaseUnityPlugin
 
             }
 
+            // if dead teammates should be a different setting, i forgot how / why they're automatically on the map... 
             foreach (PlayerDeathHead playerDeathHead in FindObjectsOfType<PlayerDeathHead>())
             {
                 playerDeathHead.mapCustom.color = ConfigValues.DeadTeammateColor.Value.ToColor();
@@ -363,7 +363,7 @@ public class TheEverythingMap : BaseUnityPlugin
         }
     }
 
-    private static void ShowAllEnemies()
+    public static void ShowAllEnemies()
     {
         if (ConfigValues.ShowEnemies.Value
             && FindObjectsOfType<EnemyParent>().Any(enemyParent => enemyParent != null && enemyParent.gameObject != null))
@@ -382,9 +382,9 @@ public class TheEverythingMap : BaseUnityPlugin
                     {
                         mapCustom = enemyParent.Enemy.AddComponent<MapCustom>();
                         mapCustom.autoAdd = false;
-                        mapCustom.sprite = spriteCircle;
+                        mapCustom.sprite = SpriteHelper.CreateCircleSprite((int)(enemyParent.Enemy.Type.ToScale() * DEFAULT_SPRITE_SIZE));
                         mapCustom.color = ConfigValues.EnemyColor.Value.ToColor();
-                        mapCustom.transform.localScale = Vector3.one * enemyParent.Enemy.Type.ToScale();
+
                         mapCustom.Add();
                     }
                 }

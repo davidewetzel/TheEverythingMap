@@ -186,6 +186,22 @@ internal class SettingsMenu
 
         popupPage.AddElementToScrollView(parent =>
         {
+            REPOToggle showTeammatesToggle = CreateREPOToggle("Show Teammates", isEnabled =>
+            {
+                ShowTeammates.Value = isEnabled;
+
+                if (isEnabled)
+                {
+                    Mod.TheEverythingMap.ShowActivePlayersOnMap();
+                }
+
+            }, parent, Vector2.zero, "Enabled", "Disabled", defaultValue: ShowTeammates.Value);
+
+            return showTeammatesToggle.rectTransform;
+        }, 0f, 0f);
+
+        popupPage.AddElementToScrollView(parent =>
+        {
             REPOSlider teammateColorSlider = CreateREPOSlider("Teammate Colors", "Color of teammates on map", str =>
             {
                 TeammateColor.Value = COLOR_DICTIONARY_KEYS[str];
@@ -215,9 +231,15 @@ internal class SettingsMenu
 
         popupPage.AddElementToScrollView(parent =>
         {
-            REPOToggle showEnemiesToggle = CreateREPOToggle("Show Enemies", toggle =>
+            REPOToggle showEnemiesToggle = CreateREPOToggle("Show Enemies", isEnabled =>
             {
-                ShowEnemies.Value = toggle;
+                ShowEnemies.Value = isEnabled;
+
+                if (isEnabled)
+                {
+                    Mod.TheEverythingMap.ShowAllEnemies();
+                }
+
             }, parent, Vector2.zero, "Enabled", "Disabled", defaultValue: ShowEnemies.Value);
 
             return showEnemiesToggle.rectTransform;

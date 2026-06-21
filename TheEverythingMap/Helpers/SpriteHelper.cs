@@ -2,9 +2,8 @@
 
 internal static class SpriteHelper
 {
-    public static Sprite CreateCircleSprite()
+    public static Sprite CreateCircleSprite(int size)
     {
-        int size = 10;
         Texture2D val = new(size, size, TextureFormat.ARGB32, false);
         Color[] array = new Color[size * size];
         float num2 = size / 2f;

@@ -13,7 +13,7 @@ public class TheEverythingMap : BaseUnityPlugin
 {
     // TODO: need to rename everything to be readable, a lot of it was taken from decompiled code 
     private const string MOD_GUID = "Nubez.TheEverythingMap";
-    private const string VERSION_NUMBER = "1.0.7";
+    private const string VERSION_NUMBER = "1.0.8";
     private const string SPECTATE_CAMERA_NAME = "Dirt Finder Map Camera";
 
     internal static TheEverythingMap Instance { get; private set; } = null!;
